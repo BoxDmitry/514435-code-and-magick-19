@@ -181,6 +181,33 @@
   </div>
 </template>
 
+<script>
+    var fireballSize = 22;
+    var wizardSpeed = 3;
+    var wizardWidth = 70;
+    
+    var getWizardHeight = function () {
+        return 1.337 * wizardWidth;
+    }
+    
+    var getFireballSpeed = function (left) {
+        if (left) {
+            return 5;
+        }else {
+            return 2;
+        }
+    }
+    
+    var getWizardX = function (width) {
+        var ScreenWidthWithoutWizard = width - wizardWidth; // Ширина экрана без мага
+        return ScreenWidthWithoutWizard / 2;
+    }
+        
+    var getWizardH = function (height) {
+        var ScreenHeightWithoutWizard = height - getWizardHeight(); // Высота экрана без мага
+        return ScreenHeightWithoutWizard;
+    }
+</script>
 <script src="js/game.js"></script>
 
 </body>
