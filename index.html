@@ -186,26 +186,24 @@
     var wizardSpeed = 3;
     var wizardWidth = 70;
     
+    var heightProportions = 1.337;
+    
     var getWizardHeight = function () {
-        return 1.337 * wizardWidth;
+        return heightProportions * wizardWidth;
     }
     
     var getFireballSpeed = function (left) {
-        if (left) {
-            return 5;
-        }else {
-            return 2;
-        }
+        return left ? 5 : 2;
     }
     
     var getWizardX = function (width) {
-        var ScreenWidthWithoutWizard = width - wizardWidth; // Ширина экрана без мага
-        return ScreenWidthWithoutWizard / 2;
+        var screenWidthWithoutWizard = width - wizardWidth;
+        return screenWidthWithoutWizard / 2;
     }
         
-    var getWizardH = function (height) {
-        var ScreenHeightWithoutWizard = height - getWizardHeight(); // Высота экрана без мага
-        return ScreenHeightWithoutWizard;
+    var setWizardY = function (height) {
+        var screenHeightWithoutWizard = height - getWizardHeight();
+        return screenHeightWithoutWizard;
     }
 </script>
 <script src="js/game.js"></script>
