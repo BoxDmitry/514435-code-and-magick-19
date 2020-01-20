@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Dmitry Popov](https://up.htmlacademy.ru/javascript/19/user/514435).
-* Наставник: `Неизвестно`.
+* Наставник: [Андрей Слесаренко](https://htmlacademy.ru/profile/swen).
 
 ---
 
