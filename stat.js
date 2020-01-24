@@ -30,7 +30,7 @@ var printCloud = function (ctx, x, y, color, colorShadow) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 }
 
-function random (min, max) {
+function getRandom (min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -57,7 +57,7 @@ window.renderStatistics = function (ctx, players, times) {
 
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], (CHART_MARGIN + CHART_WIDTH) * i + CLOUD_X + CLOUD_X/4.5, CLOUD_Y + GAP * 3.5 + CHART_HEIGHT);
-    var color = players[i] == 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, 100%, '+ random(10, 100) +'%)';
+    var color = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, 100%, '+ random(10, 100) +'%)';
 
     console.log(color);
 
