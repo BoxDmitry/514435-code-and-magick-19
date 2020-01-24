@@ -49,9 +49,6 @@ window.renderStatistics = function (ctx, players, times) {
   console.log(times);
 
   for (var i = 0; i < players.length; i++) {
-//    i++;
-//    console.log(CLOUD_X + CHART_MARGIN * i);
-//    i--;
     ctx.fillStyle = '#000';
     ctx.fillText(Math.floor(times[i]), (CHART_MARGIN + CHART_WIDTH) * i + CLOUD_X + CLOUD_X/4.5, CLOUD_Y + GAP * 2.3 + CHART_HEIGHT - (CHART_HEIGHT * times[i]) / maxTime);
 
