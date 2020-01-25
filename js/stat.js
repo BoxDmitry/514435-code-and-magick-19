@@ -34,7 +34,7 @@ var getRandom = function (min, max) {
   var least = Math.ceil(min);
   var most = Math.floor(max);
   return Math.floor(Math.random() * (most - least + 1)) + least;
-}
+};
 
 window.renderStatistics = function (ctx, players, times) {
   printCloud(ctx, 100, 10, '#fff', 'rgba(0, 0, 0, 0.7)');
