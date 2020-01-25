@@ -30,11 +30,11 @@ var printCloud = function (ctx, x, y, color, colorShadow) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-function getRandom (min, max) {
+function getRandom(min, max) {
   var least = Math.ceil(min);
   var most = Math.floor(max);
   return Math.floor(Math.random() * (most - least + 1)) + least;
-};
+}
 
 window.renderStatistics = function (ctx, players, times) {
   printCloud(ctx, 100, 10, '#fff', 'rgba(0, 0, 0, 0.7)');
@@ -57,4 +57,4 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillStyle = color;
     ctx.fillRect((CHART_MARGIN + CHART_WIDTH) * i + CLOUD_X + CLOUD_X / 4.5, CLOUD_Y + GAP * 2.5 + CHART_HEIGHT - (CHART_HEIGHT * times[i]) / maxTime, CHART_WIDTH, (CHART_HEIGHT * times[i]) / maxTime);
   }
-}
+};
