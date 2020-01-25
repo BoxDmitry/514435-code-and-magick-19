@@ -30,7 +30,7 @@ var printCloud = function (ctx, x, y, color, colorShadow) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-function getRandom(min, max) {
+var getRandom = function (min, max) {
   var least = Math.ceil(min);
   var most = Math.floor(max);
   return Math.floor(Math.random() * (most - least + 1)) + least;
