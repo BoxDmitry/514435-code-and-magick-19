@@ -5,7 +5,7 @@ var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', '�
 var WIZARD_COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var wizardsQuantity = 4
+var wizardsQuantity = 4;
 
 var getRandom = function (min, max) {
   var least = Math.ceil(min);
@@ -17,7 +17,7 @@ var getRandomElement = function (array) {
   var min = 0;
   var max = array.length - 1;
   return array[getRandom(min, max)];
-}
+};
 
 var settingsWindow = document.querySelector('.setup');
 settingsWindow.classList.remove('hidden');
@@ -52,8 +52,8 @@ var renderWizard = function (wizard) {
 };
 
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
+for (var j = 0; j < wizards.length; j++) {
+  fragment.appendChild(renderWizard(wizards[j]));
 }
 similarListElement.appendChild(fragment);
 
