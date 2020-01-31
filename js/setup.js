@@ -76,11 +76,11 @@ var statFocusInput = true;
 
 var onFocusInput = function () {
   statFocusInput = false;
-}
+};
 
 var onBlurInput = function () {
   statFocusInput = true;
-}
+};
 
 var onPopupEscPress = function (evt) {
   if (evt.key === ESC_KEY && statFocusInput) {
@@ -92,19 +92,19 @@ var onWizardEyesColor = function () {
   var color = getRandomElement(WIZARD_EYES_COLORS);
   wizardEyesBlock.style.fill = color;
   wizardEyesInput.value = color;
-}
+};
 
 var onWizardCoatColor = function () {
   var color = getRandomElement(WIZARD_COAT_COLORS);
   wizardCoatBlock.style.fill = color;
   wizardCoatInput.value = color;
-}
+};
 
 var onWizardFairbollColor = function () {
   var color = getRandomElement(WIZARD_FAIRBOLL_COLORS);
   wizardFairbollBlock.style.backgroundColor = color;
   wizardFairbollInput.value = color;
-}
+};
 
 var openPopup = function () {
   settingsWindow.classList.remove('hidden');
