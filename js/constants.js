@@ -21,5 +21,5 @@
     WIZARD_EYES_COLORS: WIZARD_EYES_COLORS,
     WIZARD_FAIRBOLL_COLORS: WIZARD_FAIRBOLL_COLORS,
     wizardsQuantity: wizardsQuantity
-  }
-})()
+  };
+})();

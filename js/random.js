@@ -16,5 +16,5 @@
   window.random = {
     get: get,
     getElement: getElement
-  }
-})()
+  };
+})();

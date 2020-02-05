@@ -14,6 +14,8 @@
   var wizardFairbollInput = document.querySelector('input[name="fireball-color"]');
   var nameInput = document.querySelector('.setup-user-name');
 
+  var settingsWindow = document.querySelector('.setup');
+
   var openPopup = function () {
     settingsWindow.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
@@ -32,6 +34,8 @@
     wizardCoatBlock.removeEventListener('click', onWizardCoatColor);
     wizardEyesBlock.removeEventListener('click', onWizardEyesColor);
     wizardFairbollBlock.removeEventListener('click', onWizardFairbollColor);
+    settingsWindow.style.top = '80px';
+    settingsWindow.style.left = '50%';
   };
 
   var onPopupEscPress = function (evt) {
@@ -87,4 +91,4 @@
       closePopup();
     }
   });
-})()
+})();
