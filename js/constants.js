@@ -12,6 +12,8 @@
 
   var wizardsQuantity = 4;
 
+  var settingsWindow = document.querySelector('.setup');
+
   window.constatns = {
     ESC_KEY: ESC_KEY,
     ENTER_KEY: ENTER_KEY,
@@ -20,6 +22,7 @@
     WIZARD_COAT_COLORS: WIZARD_COAT_COLORS,
     WIZARD_EYES_COLORS: WIZARD_EYES_COLORS,
     WIZARD_FAIRBOLL_COLORS: WIZARD_FAIRBOLL_COLORS,
-    wizardsQuantity: wizardsQuantity
+    wizardsQuantity: wizardsQuantity,
+    settingsWindow: settingsWindow
   };
 })();

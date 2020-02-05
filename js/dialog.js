@@ -14,8 +14,6 @@
   var wizardFairbollInput = document.querySelector('input[name="fireball-color"]');
   var nameInput = document.querySelector('.setup-user-name');
 
-  var settingsWindow = document.querySelector('.setup');
-
   var openPopup = function () {
     settingsWindow.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);

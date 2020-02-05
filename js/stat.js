@@ -59,4 +59,4 @@
       ctx.fillRect((CHART_MARGIN + CHART_WIDTH) * i + CLOUD_X + CLOUD_X / 4.5, CLOUD_Y + GAP * 2.5 + CHART_HEIGHT - (CHART_HEIGHT * times[i]) / maxTime, CHART_WIDTH, (CHART_HEIGHT * times[i]) / maxTime);
     }
   };
-})()
+})();

@@ -2,8 +2,7 @@
 
 (function () {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var settingsWindow = document.querySelector('.setup');
-  var similarListElement = settingsWindow.querySelector('.setup-similar-list');
+  var similarListElement = window.constatns.settingsWindow.querySelector('.setup-similar-list');
 
   var generationWizard = function () {
     var wizardОbject = {
@@ -36,9 +35,9 @@
   }
   similarListElement.appendChild(fragment);
 
-  settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
+  window.constatns.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
 
-   var dialogHandler = settingsWindow.querySelector('.upload');
+  var dialogHandler = window.constatns.settingsWindow.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -64,8 +63,8 @@
         y: moveEvt.clientY
       };
 
-      settingsWindow.style.top = (settingsWindow.offsetTop - shift.y) + 'px';
-      settingsWindow.style.left = (settingsWindow.offsetLeft - shift.x) + 'px';
+      window.constatns.settingsWindow.style.top = (window.constatns.settingsWindow.offsetTop - shift.y) + 'px';
+      window.constatns.settingsWindow.style.left = (window.constatns.settingsWindow.offsetLeft - shift.x) + 'px';
 
     };
 
