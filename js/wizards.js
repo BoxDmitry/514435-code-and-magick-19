@@ -2,20 +2,20 @@
 
 (function () {
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var similarListElement = window.constatns.settingsWindow.querySelector('.setup-similar-list');
+  var similarListElement = window.constants.settingsWindow.querySelector('.setup-similar-list');
 
   var generationWizard = function () {
     var wizardОbject = {
-      name: window.random.getElement(window.constatns.WIZARD_NAMES) + ' ' + window.random.getElement(window.constatns.WIZARD_SURNAMES),
-      coatColor: window.random.getElement(window.constatns.WIZARD_COAT_COLORS),
-      eyesColor: window.random.getElement(window.constatns.WIZARD_EYES_COLORS)
+      name: window.util.getRandomElement(window.constants.WIZARD_NAMES) + ' ' + window.util.getRandomElement(window.constants.WIZARD_SURNAMES),
+      coatColor: window.util.getRandomElement(window.constants.WIZARD_COAT_COLORS),
+      eyesColor: window.util.getRandomElement(window.constants.WIZARD_EYES_COLORS)
     };
     return wizardОbject;
   };
 
   var wizards = [];
 
-  for (var i = 0; i < window.constatns.wizardsQuantity; i++) {
+  for (var i = 0; i < window.constants.wizardsQuantity; i++) {
     wizards[i] = generationWizard();
   }
 
@@ -35,9 +35,9 @@
   }
   similarListElement.appendChild(fragment);
 
-  window.constatns.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
+  window.constants.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
 
-  var dialogHandler = window.constatns.settingsWindow.querySelector('.upload');
+  var dialogHandler = window.constants.settingsWindow.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -63,8 +63,10 @@
         y: moveEvt.clientY
       };
 
-      window.constatns.settingsWindow.style.top = (window.constatns.settingsWindow.offsetTop - shift.y) + 'px';
-      window.constatns.settingsWindow.style.left = (window.constatns.settingsWindow.offsetLeft - shift.x) + 'px';
+      var settingsElem = window.constants.settingsWindow;
+
+      settingsElem.style.top = (settingsElem.offsetTop - shift.y) + 'px';
+      settingsElem.style.left = (settingsElem.offsetLeft - shift.x) + 'px';
 
     };
 

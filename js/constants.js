@@ -14,7 +14,7 @@
 
   var settingsWindow = document.querySelector('.setup');
 
-  window.constatns = {
+  window.constants = {
     ESC_KEY: ESC_KEY,
     ENTER_KEY: ENTER_KEY,
     WIZARD_NAMES: WIZARD_NAMES,

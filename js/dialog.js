@@ -37,25 +37,25 @@
   };
 
   var onPopupEscPress = function (evt) {
-    if (evt.key === window.constatns.ESC_KEY && statFocusInput) {
+    if (evt.key === window.constants.ESC_KEY && statFocusInput) {
       closePopup();
     }
   };
 
   var onWizardEyesColor = function () {
-    var color = window.random.getElement(window.constatns.WIZARD_EYES_COLORS);
+    var color = window.random.getElement(window.constants.WIZARD_EYES_COLORS);
     wizardEyesBlock.style.fill = color;
     wizardEyesInput.value = color;
   };
 
   var onWizardCoatColor = function () {
-    var color = window.random.getElement(window.constatns.WIZARD_COAT_COLORS);
+    var color = window.random.getElement(window.constants.WIZARD_COAT_COLORS);
     wizardCoatBlock.style.fill = color;
     wizardCoatInput.value = color;
   };
 
   var onWizardFairbollColor = function () {
-    var color = window.random.getElement(window.constatns.WIZARD_FAIRBOLL_COLORS);
+    var color = window.random.getElement(window.constants.WIZARD_FAIRBOLL_COLORS);
     wizardFairbollBlock.style.backgroundColor = color;
     wizardFairbollInput.value = color;
   };
@@ -75,7 +75,7 @@
   });
 
   buttonOpenSetting.addEventListener('keydown', function (evt) {
-    if (evt.key === window.constatns.ENTER_KEY) {
+    if (evt.key === window.constants.ENTER_KEY) {
       openPopup();
     }
   });
@@ -85,7 +85,7 @@
   });
 
   buttonClossSetting.addEventListener('keydown', function (evt) {
-    if (evt.key === window.constatns.ENTER_KEY) {
+    if (evt.key === window.constants.ENTER_KEY) {
       closePopup();
     }
   });
