@@ -41,12 +41,6 @@
 
   window.backend.load(successHandler, errorHandler, 'https://js.dump.academy/code-and-magick/data');
 
-//  var fragment = document.createDocumentFragment();
-//  for (var j = 0; j < wizards.length; j++) {
-//    fragment.appendChild(renderWizard(wizards[j]));
-//  }
-//  similarListElement.appendChild(fragment);
-
   var dialogHandler = window.constants.settingsWindow.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {

@@ -73,7 +73,7 @@
     statFocusInput = true;
   };
 
-  var successHandler = function (wizards) {
+  var successHandler = function () {
     closePopup();
   };
 
@@ -95,7 +95,7 @@
 
     var urlSendForm = 'https://js.dump.academy/code-and-magick';
     window.backend.save(successHandler, errorHandler, urlSendForm, new FormData(form));
-  }
+  };
 
   buttonOpenSetting.addEventListener('click', function () {
     openPopup();
