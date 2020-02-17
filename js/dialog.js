@@ -93,8 +93,7 @@
   var onSendForm = function (evt) {
     evt.preventDefault();
 
-    var urlSendForm = 'https://js.dump.academy/code-and-magick';
-    window.backend.save(successHandler, errorHandler, urlSendForm, new FormData(form));
+    window.backend.save(successHandler, errorHandler, window.backend.API_URL.save, new FormData(form));
   };
 
   buttonOpenSetting.addEventListener('click', function () {

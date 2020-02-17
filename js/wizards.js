@@ -17,7 +17,6 @@
   var successHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
 
-
     for (var i = 0; i < window.constants.wizardsQuantity; i++) {
       fragment.appendChild(renderWizard(wizards[i]));
     }
@@ -39,7 +38,7 @@
     document.body.insertAdjacentElement('afterbegin', node);
   };
 
-  window.backend.load(successHandler, errorHandler, 'https://js.dump.academy/code-and-magick/data');
+  window.backend.load(successHandler, errorHandler, window.backend.API_URL.data);
 
   var dialogHandler = window.constants.settingsWindow.querySelector('.upload');
 
