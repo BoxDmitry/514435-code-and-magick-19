@@ -4,24 +4,36 @@
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var similarListElement = window.constants.settingsWindow.querySelector('.setup-similar-list');
 
-  var renderWizard = function (wizard) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
+  var coatColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
+  var eyesColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
+  var wizards = [];
 
-    wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
+  var getRank = function (wizard, coatColorActive, eyesColorActive) {
+    var rank = 0;
 
-    return wizardElement;
-  };
-
-  var successHandler = function (wizards) {
-    var fragment = document.createDocumentFragment();
-
-    for (var i = 0; i < window.constants.wizardsQuantity; i++) {
-      fragment.appendChild(renderWizard(wizards[i]));
+    if (wizard.colorCoat === coatColorActive) {
+      rank += 2;
     }
-    similarListElement.appendChild(fragment);
+    if (wizard.colorEyes === eyesColorActive) {
+      rank += 1;
+    }
 
+    return rank;
+  }
+
+  var updateWizards = function (coatColorActive, eyesColorActive) {
+    window.util.render(wizards.slice().sort(function (left, right) {
+      var rankDiff = getRank(right, coatColorActive, eyesColorActive) - getRank(left, coatColorActive, eyesColorActive);
+      if (rankDiff === 0) {
+        rankDiff = wizards.indexOf(left, coatColorActive, eyesColorActive) - wizards.indexOf(right, coatColorActive, eyesColorActive);
+      }
+      return rankDiff;
+    }));
+  }
+
+  var successHandler = function (data) {
+    wizards = data;
+    updateWizards(coatColor, eyesColor);
     window.constants.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
   };
 
@@ -92,4 +104,8 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
+
+  window.wizards = {
+    updateWizards: updateWizards
+  }
 })();
