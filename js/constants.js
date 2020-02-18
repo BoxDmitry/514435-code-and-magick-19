@@ -10,9 +10,7 @@
     FAIRBOLL_COLORS: ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'],
     DEFAULT_COAT_COLOR: 'rgb(101, 137, 164)',
     DEFAULT_EYES_COLOR: 'black'
-  }
-
-  var WIZARD_FAIRBOLL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+  };
 
   var wizardsQuantity = 4;
 
