@@ -4,38 +4,41 @@
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var similarListElement = window.constants.settingsWindow.querySelector('.setup-similar-list');
 
-  var generationWizard = function () {
-    var wizardОbject = {
-      name: window.util.getRandomElement(window.constants.WIZARD_NAMES) + ' ' + window.util.getRandomElement(window.constants.WIZARD_SURNAMES),
-      coatColor: window.util.getRandomElement(window.constants.WIZARD_COAT_COLORS),
-      eyesColor: window.util.getRandomElement(window.constants.WIZARD_EYES_COLORS)
-    };
-    return wizardОbject;
-  };
-
-  var wizards = [];
-
-  for (var i = 0; i < window.constants.wizardsQuantity; i++) {
-    wizards[i] = generationWizard();
-  }
-
   var renderWizard = function (wizard) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
     return wizardElement;
   };
 
-  var fragment = document.createDocumentFragment();
-  for (var j = 0; j < wizards.length; j++) {
-    fragment.appendChild(renderWizard(wizards[j]));
-  }
-  similarListElement.appendChild(fragment);
+  var successHandler = function (wizards) {
+    var fragment = document.createDocumentFragment();
 
-  window.constants.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
+    for (var i = 0; i < window.constants.wizardsQuantity; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+    similarListElement.appendChild(fragment);
+
+    window.constants.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
+  };
+
+  var errorHandler = function (errorMessage) {
+    var node = document.createElement('div');
+    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red; padding: 20px; border-radius: 10px';
+    node.style.position = 'absolute';
+    node.style.left = '50%';
+    node.style.top = 0;
+    node.style.transform = 'translateX(-50%) translateY(50%)';
+    node.style.fontSize = '30px';
+
+    node.textContent = errorMessage;
+    document.body.insertAdjacentElement('afterbegin', node);
+  };
+
+  window.backend.load(successHandler, errorHandler, window.backend.API_URL.data);
 
   var dialogHandler = window.constants.settingsWindow.querySelector('.upload');
 
