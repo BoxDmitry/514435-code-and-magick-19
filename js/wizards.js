@@ -1,9 +1,6 @@
 'use strict';
 
 (function () {
-  var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var similarListElement = window.constants.settingsWindow.querySelector('.setup-similar-list');
-
   var coatColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
   var eyesColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
   var wizards = [];
@@ -19,7 +16,7 @@
     }
 
     return rank;
-  }
+  };
 
   var updateWizards = function (coatColorActive, eyesColorActive) {
     window.util.render(wizards.slice().sort(function (left, right) {
@@ -29,7 +26,7 @@
       }
       return rankDiff;
     }));
-  }
+  };
 
   var successHandler = function (data) {
     wizards = data;
@@ -107,5 +104,5 @@
 
   window.wizards = {
     updateWizards: updateWizards
-  }
+  };
 })();
