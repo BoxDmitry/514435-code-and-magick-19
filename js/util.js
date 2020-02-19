@@ -13,9 +13,6 @@
     return array[getRandom(min, max)];
   };
 
-  var similar = document.querySelector('.setup-similar');
-  var similarList = document.querySelector('.setup-similar-list');
-
   window.util = {
     getRandom: getRandom,
     getRandomElement: getRandomElement
