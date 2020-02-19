@@ -49,14 +49,14 @@
     var color = window.util.getRandomElement(window.constants.WIZARD.EYES_COLORS);
     wizardEyesBlock.style.fill = color;
     wizardEyesInput.value = color;
-    window.wizards.updateWizards(wizardCoatInput.value, color);
+    window.wizards.updateAll(wizardCoatInput.value, color);
   });
 
   var onWizardCoatColor = window.debounce(function () {
     var color = window.util.getRandomElement(window.constants.WIZARD.COAT_COLORS);
     wizardCoatBlock.style.fill = color;
     wizardCoatInput.value = color;
-    window.wizards.updateWizards(color, wizardEyesInput.value);
+    window.wizards.updateAll(color, wizardEyesInput.value);
   });
 
   var onWizardFairbollColor = function () {
