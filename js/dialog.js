@@ -45,20 +45,22 @@
     }
   };
 
-  var onWizardEyesColor = function () {
-    var color = window.util.getRandomElement(window.constants.WIZARD_EYES_COLORS);
+  var onWizardEyesColor = window.debounce(function () {
+    var color = window.util.getRandomElement(window.constants.WIZARD.EYES_COLORS);
     wizardEyesBlock.style.fill = color;
     wizardEyesInput.value = color;
-  };
+    window.wizards.updateAll(wizardCoatInput.value, color);
+  });
 
-  var onWizardCoatColor = function () {
-    var color = window.util.getRandomElement(window.constants.WIZARD_COAT_COLORS);
+  var onWizardCoatColor = window.debounce(function () {
+    var color = window.util.getRandomElement(window.constants.WIZARD.COAT_COLORS);
     wizardCoatBlock.style.fill = color;
     wizardCoatInput.value = color;
-  };
+    window.wizards.updateAll(color, wizardEyesInput.value);
+  });
 
   var onWizardFairbollColor = function () {
-    var color = window.util.getRandomElement(window.constants.WIZARD_FAIRBOLL_COLORS);
+    var color = window.util.getRandomElement(window.constants.WIZARD.FAIRBOLL_COLORS);
     wizardFairbollBlock.style.backgroundColor = color;
     wizardFairbollInput.value = color;
   };

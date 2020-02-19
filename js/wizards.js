@@ -1,27 +1,63 @@
 'use strict';
 
 (function () {
-  var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-  var similarListElement = window.constants.settingsWindow.querySelector('.setup-similar-list');
+  var coatColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
+  var eyesColor = window.constants.WIZARD.DEFAULT_COAT_COLOR;
+  var wizards = [];
+
+  var wizardTemplate = document.querySelector('#similar-wizard-template');
+
+  var similar = document.querySelector('.setup-similar');
+  var similarList = document.querySelector('.setup-similar-list');
 
   var renderWizard = function (wizard) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
+    var element = wizardTemplate.content.cloneNode(true);
 
-    wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+    var wizardElement = element.querySelector('.wizard');
     wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
     wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
-    return wizardElement;
+    element.querySelector('.setup-similar-label').innerText = wizard.name;
+
+    return element;
   };
 
-  var successHandler = function (wizards) {
-    var fragment = document.createDocumentFragment();
-
-    for (var i = 0; i < window.constants.wizardsQuantity; i++) {
-      fragment.appendChild(renderWizard(wizards[i]));
+  var render = function (data) {
+    var takeNumber = data.length > 4 ? 4 : data.length;
+    similarList.innerHTML = '';
+    for (var i = 0; i < takeNumber; i++) {
+      similarList.appendChild(renderWizard(data[i]));
     }
-    similarListElement.appendChild(fragment);
 
+    similar.classList.remove('hidden');
+  };
+
+  var getRank = function (wizard, coatColorActive, eyesColorActive) {
+    var rank = 0;
+
+    if (wizard.colorCoat === coatColorActive) {
+      rank += 2;
+    }
+    if (wizard.colorEyes === eyesColorActive) {
+      rank += 1;
+    }
+
+    return rank;
+  };
+
+  var updateWizards = function (coatColorActive, eyesColorActive) {
+    render(wizards.slice().sort(function (left, right) {
+      var rankDiff = getRank(right, coatColorActive, eyesColorActive) - getRank(left, coatColorActive, eyesColorActive);
+      if (rankDiff === 0) {
+        rankDiff = wizards.indexOf(left, coatColorActive, eyesColorActive) - wizards.indexOf(right, coatColorActive, eyesColorActive);
+      }
+      return rankDiff;
+    }));
+  };
+
+  var successHandler = function (data) {
+    wizards = data;
+    updateWizards(coatColor, eyesColor);
     window.constants.settingsWindow.querySelector('.setup-similar').classList.remove('hidden');
   };
 
@@ -92,4 +128,8 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
+
+  window.wizards = {
+    updateAll: updateWizards
+  };
 })();
