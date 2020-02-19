@@ -77,6 +77,7 @@
 
   var successHandler = function () {
     closePopup();
+    document.querySelector('.setup-open-icon').src = window.avatar.url;
   };
 
   var errorHandler = function (errorMessage) {
