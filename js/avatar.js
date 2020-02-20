@@ -11,7 +11,7 @@
     var fileName = file.name.toLowerCase();
 
     var matches = FILE_TYPES.some(function (it) {
-     return fileName.endsWith(it);
+      return fileName.endsWith(it);
     });
 
     if (matches) {
@@ -27,7 +27,7 @@
       });
 
       reader.readAsDataURL(file);
-    }else {
+    } else {
       var node = document.createElement('div');
       node.classList.add('error--popap');
       node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red; padding: 20px; border-radius: 10px';
@@ -43,7 +43,7 @@
       var onHiddenError = function () {
         document.querySelector('.error--popap').removeEventListener('click', onHiddenError);
         document.querySelector('.error--popap').remove();
-      }
+      };
 
       document.querySelector('.error--popap').addEventListener('click', onHiddenError);
     }
